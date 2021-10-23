@@ -1,5 +1,6 @@
 @extends('layouts.admin.app')
 @section('admin_content')
+
         <x-breadcrumb data="dashboard"/>
         <!-- Main content -->
         <section class="content">
@@ -9,12 +10,10 @@
               <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
                   <span class="info-box-icon bg-info elevation-1"><i class="fa fa-gear"></i></span>
-
                   <div class="info-box-content">
                     <span class="info-box-text">Product</span>
                     <span class="info-box-number">
                      43
-
                     </span>
                   </div>
                   <!-- /.info-box-content -->

@@ -39,21 +39,15 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
-                Purchase Products
+                Service
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="@route('service.index')" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Purchase</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Purchase Date Filtering</p>
+                  <p>Service's</p>
                 </a>
               </li>
             </ul>
