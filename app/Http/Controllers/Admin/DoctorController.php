@@ -83,7 +83,8 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-        //
+        $doctor = Doctor::find($id);
+        return view('admin.doctor.detail', compact('doctor'));
     }
 
     /**
@@ -94,7 +95,8 @@ class DoctorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit = Doctor::find($id);
+        return view('admin.doctor.create_update', compact('edit'));
     }
 
     /**
@@ -105,8 +107,47 @@ class DoctorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {//'doctor_name','doctor_image', 'doctor_designation', 'doctor_details', 'doctor_facebook', 'dcotor_twitter', 'doctor_istagram','status',
+        $validated = $request->validate([
+            'doctor_name'=>' string |required | max:30 | min:2 ',
+            'doctor_designation'=>'string | required',
+            'doctor_details'=>'string | required',
+        ]);
+
+        if($validated){
+            try{
+                DB::beginTransaction();
+                $doctor = Doctor::find($id);
+                    $doctor->doctor_name = $request->doctor_name;
+                    $doctor->doctor_designation = $request->doctor_designation;
+                    $doctor->doctor_details = $request->doctor_details;
+                    $doctor->doctor_facebook = $request->doctor_facebook;
+                    $doctor->dcotor_twitter = $request->dcotor_twitter;
+                    $doctor->doctor_istagram = $request->doctor_istagram;
+                    if($request->doctor_image){
+                        $doctor_image = array();
+                        if ($request->hasFile('doctor_image')) {
+                            foreach ($request->doctor_image as $key => $photo) {
+                                $path = $photo->store('uploads/doctor/photos');
+                                array_push($doctor_image, $path);
+                            }
+                            $doctor['doctor_image']=json_encode($doctor_image);
+                        }
+                    }else{
+                        $doctor['doctor_image']= $doctor->doctor_image;
+                    }
+
+                    $doctor->save();
+                    if (!empty($doctor)) {
+                        DB::commit();
+                        return redirect()->route('doctor.index')->with('success', 'Doctor Update Successfully');
+                    }
+                    throw new \Exception('Invalid About Information');
+                }catch(\Exception $ex){
+                    DB::rollBack();
+                }
+        }
+
     }
 
     /**
@@ -117,6 +158,7 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Doctor::find($id)->delete();
+        return redirect()->route('doctor.index')->with('danger', 'Deleted Successfully !!!');
     }
 }

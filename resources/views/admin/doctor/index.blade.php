@@ -51,10 +51,10 @@
                                 <td>
 
                                     <a class="btn btn-sm btn-rounded btn-success"
-                                        href="@route('service.edit', $item->id)"> <i class="fas fa-user-edit"></i></a>
+                                        href="@route('doctor.edit', $item->id)"> <i class="fas fa-user-edit"></i></a>
                                     <a class="btn btn-sm btn-rounded btn-primary"
-                                    href="@route('service.edit', $item->id)"> <i class="fas fa-eye"></i> </a>
-                                    <form method="POST" action="@route('service.destroy',$item->id)">
+                                    href="@route('doctor.show', $item->id)"> <i class="fas fa-eye"></i> </a>
+                                    <form method="POST" action="@route('doctor.destroy',$item->id)">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-rounded btn-danger"><i

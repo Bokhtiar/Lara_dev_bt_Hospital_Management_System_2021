@@ -23,7 +23,12 @@
 <section class="card">
     <div class="card-header">
         <div class="card-body">
+            @if($edit)
+            <form action="@route('doctor.update', $edit->id)" method="POST" enctype="multipart/form-data" class="form-group">
+                @method('PUT')
+            @else
             <form action="@route('doctor.store')" method="POST" enctype="multipart/form-data" class="form-group">
+            @endif
                 @csrf
                 <div class="row">
                     <div class="col-sm-12 col-md-8 col-lg-8">
@@ -32,10 +37,17 @@
                             <label for="">Doctor Name <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="doctor_name" value="{{ @$edit->doctor_name }}" placeholder="Doctor Name" id="">
                         </div>
+
                         <div class="form-group">
                             <label for="">Doctor Image <span class="text-danger">*</span></label>
                             <input type="file" class="form-control" name="doctor_image[]" multiple>
                         </div>
+                        @php
+                        $image=json_decode(@$edit->doctor_image);
+                        @endphp
+                        @if($image)
+                           <span>Already Selected Image  </span> <img src="{{asset($image[0])}}" height="60px" width="60px" alt="">
+                        @endif
                         <div class="form-group">
                             <label for="">Doctor Designation <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="doctor_designation" value="{{ @$edit->doctor_designation }}" placeholder="Doctor Designation" id="">
