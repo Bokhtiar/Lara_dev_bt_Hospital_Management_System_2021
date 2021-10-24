@@ -75,7 +75,7 @@
                     appointment
                     btn btn-outline-primary
                     text-dark
-                  " href="appointment.html">Make an Appointment</a>
+                  " href="http://localhost:8000/#appointment">Make an Appointment</a>
             </li>
           </ul>
         </div>

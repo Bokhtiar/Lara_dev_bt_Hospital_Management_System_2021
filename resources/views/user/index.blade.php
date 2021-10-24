@@ -19,7 +19,7 @@
               typesetting industry. Lorem Ipsum has been the industry's
               standard dummy text ever since the 1500s,
             </p>
-            <a class="appointment btn btn-outline-primary text-dark" href="#">Make an Appointment</a>
+            <a class="appointment btn btn-outline-primary text-dark" href="#appointment">Make an Appointment</a>
           </div>
         </div>
 
@@ -32,7 +32,7 @@
               typesetting industry. Lorem Ipsum has been the industry's
               standard dummy text ever since the 1500s,
             </p>
-            <a class="appointment btn btn-outline-primary text-dark" href="#">Make an Appointment</a>
+            <a class="appointment btn btn-outline-primary text-dark" href="#appointment">Make an Appointment</a>
           </div>
         </div>
         <div class="carousel-item">
@@ -44,7 +44,7 @@
               typesetting industry. Lorem Ipsum has been the industry's
               standard dummy text ever since the 1500s,
             </p>
-            <a class="appointment btn btn-outline-primary text-dark" href="#">Make an Appointment</a>
+            <a class="appointment btn btn-outline-primary text-dark" href="#appointment">Make an Appointment</a>
           </div>
         </div>
       </div>
@@ -146,7 +146,7 @@
   </section>
   <!-- End Services Section -->
   <!--appointment start-->
-  <section>
+  <section id="appointment">
     <div class="container px-1 px-md-4 py-5 mx-auto">
     <form action="@route('user_appointment.store')" method="POST">
         @csrf
