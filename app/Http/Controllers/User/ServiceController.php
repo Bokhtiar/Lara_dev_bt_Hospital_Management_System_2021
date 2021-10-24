@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
-class UserDashboardController extends Controller
+class ServiceController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return "hi i am a User dashboard";
-    }
-
-    public function about()
-    {
         $services = Service::all();
-        return view('user.about', compact('services'));
+        return view('user.service', compact('services'));
     }
 }

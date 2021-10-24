@@ -9,7 +9,7 @@
           </button>
 
           <span class="" href="#"><i class="far fa-envelope"></i> test@gmail.com</span>&nbsp;&nbsp;
-          <span class="" href="#"><i class="fas fa-mobile-alt"></i> +880 1638107361</span>
+          <span class="" href="#"><i class="fas fa-mobile-alt"></i> +880 1638103321</span>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
@@ -50,21 +50,21 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="@route('about')">About</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="service.html">Services</a>
+              <a class="nav-link" href="@route('services')">Services</a>
             </li>
 
             <li class="nav-item">
               <a class="nav-link" href="#">Departments</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="doctor.html">Doctors</a>
+              <a class="nav-link" href="@route('doctors')">Doctors</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>

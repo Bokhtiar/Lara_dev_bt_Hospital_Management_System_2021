@@ -23,7 +23,7 @@
 <section class="card">
     <div class="card-header">
         <div class="card-body">
-            @if($edit)
+            @if(@$edit)
             <form action="@route('doctor.update', $edit->id)" method="POST" enctype="multipart/form-data" class="form-group">
                 @method('PUT')
             @else
