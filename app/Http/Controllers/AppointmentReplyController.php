@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Appointment;
 use App\Models\AppointmentReply;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class AppointmentController extends Controller
+class AppointmentReplyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +15,18 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('user_id', Auth::id())->get();
-        return view('user.appointment.index', compact('appointments'));
+        //
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -30,35 +35,23 @@ class AppointmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {//'name','phone','email','age','user_id','date','time','doctor_id','note','status',
+    {
         $validated = $request->validate([
-            'name'=>'string |required | max:30 | min:2 ',
-            'phone'=>'required',
-            'email'=>'required',
-            'age'=>'required',
-            'date'=>'required',
-            'time'=>'required',
-            'doctor_id'=>'required',
-            'note'=>'required',
+            'link'=>'required',
+            'note'=>'string | required',
         ]);
+
         if($validated){
             try{
                 DB::beginTransaction();
-                $app = new Appointment;
-                    $app->name = $request->name;
-                    $app->phone = $request->phone;
-                    $app->email = $request->email;
-                    $app->age = $request->age;
-                    $app->user_id = Auth::id();
-                    $app->date = $request->date;
-
-                    $app->time = $request->time;
-                    $app->doctor_id = $request->doctor_id;
-                    $app->note = $request->note;
-                    $app->save();
-                    if (!empty($app)) {
+                $app_reply = new AppointmentReply;
+                    $app_reply->link = $request->link;
+                    $app_reply->note = $request->note;
+                    $app_reply->appointment_id = $request->appointment_id;
+                    $app_reply->save();
+                    if (!empty($app_reply)) {
                         DB::commit();
-                        return redirect('/')->with('success', 'Appointment Added Successfully');
+                        return redirect()->route('appointment.index')->with('success', 'Appointment Reply Added Successfully');
                     }
                     throw new \Exception('Invalid About Information');
                 }catch(\Exception $ex){
@@ -75,9 +68,7 @@ class AppointmentController extends Controller
      */
     public function show($id)
     {
-        $item = Appointment::find($id);
-        $reply = AppointmentReply::where('appointment_id', $id)->first();
-        return view('user.appointment.show', compact('item','reply'));
+        //
     }
 
     /**
