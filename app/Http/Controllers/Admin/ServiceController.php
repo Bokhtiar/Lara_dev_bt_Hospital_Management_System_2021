@@ -106,7 +106,9 @@ class ServiceController extends Controller
     {
         //'service_name', 'service_image', 'service_short_description', 'status',
         $validated = $request->validate([
-            'service_name'=>['required', 'string',Rule::unique('services', 'service_name')->ignore($id,'id')],
+            'service_name' => [
+                'required', Rule::unique('services', 'service_name')->ignore($request->id),
+            ],
         ]);
 
         if($validated){

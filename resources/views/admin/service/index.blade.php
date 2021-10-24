@@ -8,9 +8,9 @@
         <div class="card-tools">
             <div class="input-group form-inline input-group-sm" style="width: 100%;">
                 <p class="form-inline">
-                    <a href="" class="btn btn-info text-light"><i class="fas fa-list"></i>
+                    <a href="@route('service.index')" class="btn btn-info text-light"><i class="fas fa-list"></i>
                         LIST OF SERVICE</a>
-                    <a href="" class="btn btn-primary"><i class="fas fa-plus"></i>CREATE SERVICE</a>
+                    <a href="@route('service.create')" class="btn btn-primary"><i class="fas fa-plus"></i>CREATE SERVICE</a>
                 </p>
             </div>
         </div>
@@ -108,8 +108,9 @@
                                 <tfoot>
                                     <tr>
                                         <th>index</th>
-                                        <th>Color Name</th>
-                                        <th>color code</th>
+                                        <th>Service Name</th>
+                                        <th>Service Image</th>
+                                        <th>Service Description</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
