@@ -30,9 +30,8 @@
                         <thead>
                             <tr>
                                 <th>index</th>
-                                <th>Service Name</th>
-                                <th>Service Image</th>
-                                <th>Service Description</th>
+                                <th>Dcotor Name</th>
+                                <th>Dcotor Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -40,19 +39,21 @@
                             @foreach ($doctors as $item)
                             <tr>
                                 <td>{{$loop->index + 1}}</td>
-                                <td>{{$item->service_name}}</td>
+                                <td>{{$item->doctor_name}}</td>
                                 @php
-                                $image=json_decode($item->service_image);
+                                $image=json_decode($item->doctor_image);
                                 @endphp
                                 @if($image)
                                 <td><img src="{{asset($image[0])}}" height="60px" width="60px" alt=""> </td>
                                 @else
                                 <td><img src="{{ asset('admin/bb.jpg') }}" height="60px" width="60px" alt=""> </td>
                                 @endif
-                                <td>{{$item->service_short_description}}</td>
                                 <td>
+
                                     <a class="btn btn-sm btn-rounded btn-success"
                                         href="@route('service.edit', $item->id)"> <i class="fas fa-user-edit"></i></a>
+                                    <a class="btn btn-sm btn-rounded btn-primary"
+                                    href="@route('service.edit', $item->id)"> <i class="fas fa-eye"></i> </a>
                                     <form method="POST" action="@route('service.destroy',$item->id)">
                                         @method('DELETE')
                                         @csrf
@@ -68,8 +69,8 @@
                         <tfoot>
                             <tr>
                                 <th>index</th>
-                                <th>Color Name</th>
-                                <th>color code</th>
+                                <th>Dcotor Name</th>
+                                <th>Dcotor Image</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
