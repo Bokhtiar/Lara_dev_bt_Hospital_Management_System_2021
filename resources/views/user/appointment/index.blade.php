@@ -1,6 +1,8 @@
 @extends('layouts.user.app')
 @section('user_content')
+<br>
     <section class="container">
+        <h4 class="bg-success text-center text-light">LIST OF APPOINMENTS</h4>
         <table id="example1" class="table table-bordered table-striped text-center">
             <thead>
                 <tr>
@@ -44,5 +46,5 @@
             </tfoot>
         </table>
     </section>
-
+<br>
 @endsection

@@ -11,7 +11,7 @@
                 <div class="info-box">
                   <span class="info-box-icon bg-info elevation-1"><i class="fa fa-gear"></i></span>
                   <div class="info-box-content">
-                    <span class="info-box-text">Product</span>
+                    <span class="info-box-text">Doctor</span>
                     <span class="info-box-number">
                      43
                     </span>
@@ -26,7 +26,7 @@
                   <span class="info-box-icon bg-danger elevation-1"><i class="fa fa-google-plus"></i></span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">Order</span>
+                    <span class="info-box-text">Appointment</span>
                     <span class="info-box-number">3</span>
                   </div>
                   <!-- /.info-box-content -->
@@ -56,7 +56,7 @@
                   <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-users"></i></span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">Sell</span>
+                    <span class="info-box-text">Blog</span>
                     <span class="info-box-number">5</span>
                   </div>
                   <!-- /.info-box-content -->

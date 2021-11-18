@@ -39,9 +39,12 @@
                             <h2 class="text-center bg-primary rounded">Appointment Reply</h2>
                             <div>
                                 <h4>Already Replyed</h4>
+                                @if($reply == null)
 
-                                <span>links : {{ $reply->linke }}</span> <br>
+                                @else
+                                <span>links : {{ $reply->link }}</span> <br>
                                 <span>Note: {{ $reply->note }}</span>
+                                @endif
                             </div>
                             <hr>
                             <h4 class="text-center bg-primary rounded">Appointment Reply Form</h4>

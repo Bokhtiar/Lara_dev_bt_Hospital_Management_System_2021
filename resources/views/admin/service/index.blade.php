@@ -27,8 +27,13 @@
                     <div class="bg-primary h3 rounded">
                         <p class="text-center">SERVICE CREATE</p>
                     </div>
+                    @if (@$edit)
+                    <form class="form-group" method="POST" enctype="multipart/form-data" action="@route('service.update', $edit->id)">
+                        @method('PUT')
+                    @else
                     <form class="form-group" method="POST" enctype="multipart/form-data" action="@route('service.store')">
                         @method('POST')
+                    @endif
                         @csrf
                         <div class="form-group">
                             <label for="">Service Name <span class="text-danger">*</span></label>

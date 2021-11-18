@@ -49,7 +49,7 @@
 
                                     <a class="btn btn-sm btn-rounded btn-primary"
                                     href="@route('appointment.show', $item->id)"> <i class="fas fa-eye"></i> </a>
-                                    <form method="POST" action="@route('doctor.destroy',$item->id)">
+                                    <form method="POST" action="@route('appointment.destroy',$item->id)">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-rounded btn-danger"><i

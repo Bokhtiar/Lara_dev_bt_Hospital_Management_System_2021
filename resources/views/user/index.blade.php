@@ -171,7 +171,7 @@
                           <li class="step0"></li>
                         </ul>
                         <h6 class="mb-5">Personal Info.</h6>
-                        <h6 class="mb-5">Choice Doctor.</h6>
+                        
                       </div>
                     </div>
                     <div class="col-md-6">
