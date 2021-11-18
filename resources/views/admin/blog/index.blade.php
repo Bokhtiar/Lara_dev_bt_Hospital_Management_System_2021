@@ -47,9 +47,17 @@
                                     <tr>
                                         <td>{{$loop->index + 1}}</td>
                                         <td>{{$item->title}}</td>
-                                        <td>{{$item->dep_description}}</td>
+                                        @php
+                                        $image=json_decode($item->image);
+                                        @endphp
+                                        @if($image)
+                                        <td><img src="{{asset($image[0])}}" height="60px" width="60px" alt=""> </td>
+                                        @else
+                                        <td><img src="{{ asset('admin/bb.jpg') }}" height="60px" width="60px" alt=""> </td>
+                                        @endif
                                         <td>
-                                            <a class="btn btn-sm btn-rounded btn-success" href="@route('department.edit', $item->id)"> <i class="fas fa-user-edit"></i></a>
+                                            <a class="btn btn-sm btn-rounded btn-success" href="@route('blog.show', $item->id)">Details</a>
+                                            <a class="btn btn-sm btn-rounded btn-success" href="@route('blog.edit', $item->id)"> <i class="fas fa-user-edit"></i></a>
                                             <form method="POST" action="@route('department.destroy',$item->id)">
                                             @method('DELETE')
                                             @csrf

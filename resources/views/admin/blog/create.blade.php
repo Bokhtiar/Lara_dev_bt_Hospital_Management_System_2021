@@ -50,11 +50,11 @@
                         @endif
                         <div class="form-group">
                             <label for="">Short Description <span class="text-danger">*</span></label>
-                            <textarea class="form-control" name="doctor_details" id="" cols="10" rows="3">{{ @$edit->doctor_details }}</textarea>
+                            <textarea class="form-control" name="short_description" id="" cols="10" rows="3">{{ @$edit->short_description }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Description <span class="text-danger">*</span></label>
-                            <textarea class="form-control" name="doctor_details" id="" cols="15" rows="6">{{ @$edit->doctor_details }}</textarea>
+                            <textarea class="form-control" name="description" id="" cols="15" rows="6">{{ @$edit->description }}</textarea>
                         </div>
                     </div>
 
