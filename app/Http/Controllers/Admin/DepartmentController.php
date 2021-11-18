@@ -37,7 +37,12 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dep = new Department();
+        $dep->dep_name = $request->dep_name;
+        $dep->dep_description = $request->dep_description;
+        $dep->status = 0;
+        $dep->save();
+        return redirect()->route('department.index')->with('success', 'Department Added Successfully');
     }
 
     /**
@@ -59,7 +64,9 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit = Department::find($id);
+        $departments = Department::all();
+        return view('admin.department.index',compact('departments', 'edit'));
     }
 
     /**
@@ -71,7 +78,12 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dep = Department::find($id);
+        $dep->dep_name = $request->dep_name;
+        $dep->dep_description = $request->dep_description;
+        $dep->status = 0;
+        $dep->save();
+        return redirect()->route('department.index')->with('success', 'Department Updated Successfully');
     }
 
     /**
@@ -82,6 +94,7 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Department::find($id)->delete();
+        return redirect()->route('department.index')->with('success', 'Department Deleted Successfully');
     }
 }
