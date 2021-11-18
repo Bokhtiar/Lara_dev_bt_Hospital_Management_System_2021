@@ -38,6 +38,7 @@ Route::get('blog/detail/{id}', [App\Http\Controllers\User\BlogController::class,
 
 Route::group([ "as"=>'user.' , "prefix"=>'user' , "namespace"=>'User' , "middleware"=>['auth','user']],function(){
     Route::get('/dashboard', [App\Http\Controllers\User\UserDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/logout', [App\Http\Controllers\User\UserDashboardController::class, 'logout']);
 });
 
 

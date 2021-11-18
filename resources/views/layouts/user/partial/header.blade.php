@@ -69,9 +69,23 @@
             <li class="nav-item">
               <a class="nav-link" href="@route('user.contacts')">Contact</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@route('user_appointment.index')">Appointment Status</a>
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Accounts
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                @if(Auth::check())
+                <a class="dropdown-item" href="@route('user_appointment.index')">Appointment Status</a>
+                <a class="dropdown-item" href="{{ url('user/logout') }}">Logout</a>
+                @else
+                <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                <a class="dropdown-item" href="{{ route('register') }}">Register</a>
+                @endif
+                </div>
               </li>
+
             <li class="nav-item">
               <a class="
                     nav-link
