@@ -26,6 +26,9 @@ Route::get('/about', [App\Http\Controllers\User\UserDashboardController::class, 
 Route::get('services', [App\Http\Controllers\User\ServiceController::class, 'index'])->name('services');
 Route::get('doctors', [App\Http\Controllers\User\DoctorController::class, 'index'])->name('doctors');
 Route::get('departments', [App\Http\Controllers\User\DepartmentController::class, 'index'])->name('departments');
+Route::get('contact', [App\Http\Controllers\User\ContactController::class, 'index'])->name('contact');
+Route::post('contact/store', [App\Http\Controllers\User\ContactController::class, 'store'])->name('contact.store');
+
 
 
 

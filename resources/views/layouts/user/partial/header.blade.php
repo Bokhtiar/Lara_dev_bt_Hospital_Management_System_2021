@@ -42,7 +42,7 @@
     <!--secound header navbar start here-->
     <section>
       <nav class="navbar  container navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">Patient and Doctors Help Center</a>
+        <a class="navbar-brand" href="{{ url('/') }}">Patient and Doctors Help Center</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -67,7 +67,7 @@
               <a class="nav-link" href="@route('doctors')">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="@route('contact')">Contact</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="@route('user_appointment.index')">Appointment Status</a>
