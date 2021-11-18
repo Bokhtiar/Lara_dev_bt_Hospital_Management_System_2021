@@ -74,4 +74,10 @@ class BlogController extends Controller
         $blogs = Blog::latest()->take(6)->get();
         return view('admin.blog.show', compact('blog','blogs'));
     }
+
+    public function destroy($id)
+    {
+        Blog::find($id)->delete();
+        return redirect()->route('blog.index')->with('success', 'Blog Deleted Successfully');
+    }
 }

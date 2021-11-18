@@ -58,7 +58,7 @@
                                         <td>
                                             <a class="btn btn-sm btn-rounded btn-success" href="@route('blog.show', $item->id)">Details</a>
                                             <a class="btn btn-sm btn-rounded btn-success" href="@route('blog.edit', $item->id)"> <i class="fas fa-user-edit"></i></a>
-                                            <form method="POST" action="@route('department.destroy',$item->id)">
+                                            <form method="POST" action="@route('blog.destroy',$item->id)">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-rounded btn-danger"><i class="fas fa-trash"></i></button>

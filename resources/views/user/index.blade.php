@@ -171,7 +171,7 @@
                           <li class="step0"></li>
                         </ul>
                         <h6 class="mb-5">Personal Info.</h6>
-                        
+
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -312,71 +312,27 @@
       <hr>
     </div>
     <div class="row">
+    @foreach ($blogs as $item)
+        <div class="col-md-4 col-sm-12 col-lg-4 my-2">
+            <figure class="snip1527">
+                @php
+                $image=json_decode($item->image);
+                @endphp
+                @if($image)
+                <div class="image"><img height="310px" src="{{asset($image[0])}}" alt="pr-sample23" /></div>
+                @else
+                <td><img src="{{ asset('admin/bb.jpg') }}" height="60px" width="60px" alt=""> </td>
+                @endif
 
-      <div class="col-md-4 col-sm-12 col-lg-4 my-2">
-        <figure class="snip1527">
-          <div class="image"><img height="310px" src="{{ asset('user') }}/images/doctor1.jpg" alt="pr-sample23" /></div>
-          <figcaption>
-            <div class="date"><span class="day">28</span><span class="month">Nov</span></div>
-            <h3>
-              Acer Aspire 7 Gaming Laptop</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-              et dolore magna aliqua. </p>
-          </figcaption> <a href="#"></a>
-        </figure>
-      </div>
-
-
-      <div class="col-md-4 col-sm-12 col-lg-4 my-2">
-        <figure class="snip1527 hover">
-          <div class="image"><img height="310px" src="{{ asset('user') }}/images/doctor2.jpg" alt="pr-sample24" /></div>
-          <figcaption>
-            <div class="date"><span class="day">17</span><span class="month">Nov</span></div>
-            <h3>
-              RedmiBook, Mi Laptops Launch</h3>
-            <p> laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse </p>
-          </figcaption> <a href="#"></a>
-        </figure>
-      </div>
-
-
-      <div class="col-md-4 col-sm-12 col-lg-4 my-2">
-        <figure class="snip1527">
-          <div class="image"><img height="310px" src="{{ asset('user') }}/images/doctor3.jpg" alt="pr-sample25" /></div>
-          <figcaption>
-            <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
-            <h3>Google May Face Antitrust Case</h3>
-            <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-              est laborum. </p>
-          </figcaption> <a href="#"></a>
-        </figure>
-      </div>
-
-      <div class="col-md-4 col-sm-12 col-lg-4 my-2">
-        <figure class="snip1527">
-          <div class="image"><img height="310px" src="{{ asset('user') }}/images/doctor4.jpg" alt="pr-sample25" /></div>
-          <figcaption>
-            <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
-            <h3>Google May Face Antitrust Case</h3>
-            <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-              est laborum. </p>
-          </figcaption> <a href="#"></a>
-        </figure>
-      </div>
-
-
-      <div class="col-md-4 col-sm-12 col-lg-4 my-2">
-        <figure class="snip1527">
-          <div class="image"><img height="310px" src="{{ asset('user') }}/images/doctor1.jpg" alt="pr-sample25" /></div>
-          <figcaption>
-            <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
-            <h3>Google May Face Antitrust Case</h3>
-            <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-              est laborum. </p>
-          </figcaption> <a href="#"></a>
-        </figure>
-      </div>
+            <figcaption>
+                <div class="date"><span class="day">28</span><span class="month">Nov</span></div>
+                <h3>
+                {{ $item->title }}</h3>
+                <p>{{ $item->short_description }} </p>
+            </figcaption> <a href="{{ url('blog/detail', $item->id) }}"></a>
+            </figure>
+        </div>
+    @endforeach
     </div>
   </div>
   <!--end of blog section-->

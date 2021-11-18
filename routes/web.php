@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\AppointmentReplyController;
 use App\Http\Controllers\User\AppointmentController;
+use App\Models\Blog;
 use App\Models\Doctor;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     $services = Service::get(['service_name', 'service_image', 'service_short_description']);
     $doctors = Doctor::all();
-    return view('user.index', compact('services', 'doctors'));
+    $blogs = Blog::latest()->take(6)->get();
+    return view('user.index', compact('services', 'doctors','blogs'));
 });
 
 Auth::routes();
@@ -30,7 +32,7 @@ Route::get('doctors', [App\Http\Controllers\User\DoctorController::class, 'index
 Route::get('departments', [App\Http\Controllers\User\DepartmentController::class, 'index'])->name('departments');
 Route::get('user/contacts', [App\Http\Controllers\User\ContactController::class, 'index'])->name('user.contacts');
 Route::post('user/contacts/store', [App\Http\Controllers\User\ContactController::class, 'store'])->name('user.contact.store');
-
+Route::get('blog/detail/{id}', [App\Http\Controllers\User\BlogController::class, 'show']);
 
 
 
