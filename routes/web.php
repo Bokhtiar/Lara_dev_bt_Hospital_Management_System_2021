@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AppointmentController as AdminAppointmentController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DoctorController;
@@ -27,8 +28,8 @@ Route::get('/about', [App\Http\Controllers\User\UserDashboardController::class, 
 Route::get('services', [App\Http\Controllers\User\ServiceController::class, 'index'])->name('services');
 Route::get('doctors', [App\Http\Controllers\User\DoctorController::class, 'index'])->name('doctors');
 Route::get('departments', [App\Http\Controllers\User\DepartmentController::class, 'index'])->name('departments');
-Route::get('contact', [App\Http\Controllers\User\ContactController::class, 'index'])->name('contact');
-Route::post('contact/store', [App\Http\Controllers\User\ContactController::class, 'store'])->name('contact.store');
+Route::get('user/contacts', [App\Http\Controllers\User\ContactController::class, 'index'])->name('user.contacts');
+Route::post('user/contacts/store', [App\Http\Controllers\User\ContactController::class, 'store'])->name('user.contact.store');
 
 
 
@@ -48,6 +49,9 @@ Route::resource('appointment-reaply', AppointmentReplyController::class)->middle
 Route::resource('department', DepartmentController::class)->middleware('auth', 'admin');
 Route::resource('contact', ContactController::class)->middleware('auth', 'admin');
 Route::get('contact/status/{id}', [App\Http\Controllers\Admin\ContactController::class, 'status']);
+
+
+Route::resource('blog', BlogController::class)->middleware('auth', 'admin');
 
 Route::group([ "as"=>'admin.' , "prefix"=>'admin' , "namespace"=>'Admin' , "middleware"=>['auth','admin']],function(){
     Route::get('/dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('dashboard');

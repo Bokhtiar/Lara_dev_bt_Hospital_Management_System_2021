@@ -67,7 +67,7 @@
               <a class="nav-link" href="@route('doctors')">Doctors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="@route('contact')">Contact</a>
+              <a class="nav-link" href="@route('user.contacts')">Contact</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="@route('user_appointment.index')">Appointment Status</a>

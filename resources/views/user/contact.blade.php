@@ -7,7 +7,7 @@
         </div>
 
         <div class="my-4">
-            <form action="@route('contact.store')" method="POST">
+            <form action="@route('user.contact.store')" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-sm-12 col-md-4 col-lg-4">
