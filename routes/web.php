@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AppointmentController as AdminAppointmentController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -45,6 +46,9 @@ Route::resource('appointment', AdminAppointmentController::class)->middleware('a
 Route::get('appointment/status/{id}', [App\Http\Controllers\Admin\AppointmentController::class, 'status']);
 Route::resource('appointment-reaply', AppointmentReplyController::class)->middleware('auth', 'admin');
 Route::resource('department', DepartmentController::class)->middleware('auth', 'admin');
+Route::resource('contact', ContactController::class)->middleware('auth', 'admin');
+Route::get('contact/status/{id}', [App\Http\Controllers\Admin\ContactController::class, 'status']);
+
 Route::group([ "as"=>'admin.' , "prefix"=>'admin' , "namespace"=>'Admin' , "middleware"=>['auth','admin']],function(){
     Route::get('/dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/logout', [App\Http\Controllers\Admin\AdminDashboardController::class, 'logout']);
