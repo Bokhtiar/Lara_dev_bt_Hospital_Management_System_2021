@@ -25,6 +25,9 @@ Route::resource('user_appointment', AppointmentController::class)->middleware('a
 Route::get('/about', [App\Http\Controllers\User\UserDashboardController::class, 'about'])->name('about');
 Route::get('services', [App\Http\Controllers\User\ServiceController::class, 'index'])->name('services');
 Route::get('doctors', [App\Http\Controllers\User\DoctorController::class, 'index'])->name('doctors');
+Route::get('departments', [App\Http\Controllers\User\DepartmentController::class, 'index'])->name('departments');
+
+
 
 Route::group([ "as"=>'user.' , "prefix"=>'user' , "namespace"=>'User' , "middleware"=>['auth','user']],function(){
     Route::get('/dashboard', [App\Http\Controllers\User\UserDashboardController::class, 'index'])->name('dashboard');
